@@ -20,3 +20,5 @@ randomly without memory instead of systematically trying them?
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+The runtime complexity of the brute-force sorting algorithm, which tries all permutations of the input list, is O(n!) in the worst case. This means that the time it takes to sort the list grows exponential with the size of the input. The best-case input is an already sorted list, which results in a best-case time complexity of O(n). If we randomly created permutations without memory, I believe the worst-case time complexity would remain O(n!), but the specific number of permutations attempted before finding the sorted list could vary. However,it wouldn’t change the overall complexity.
