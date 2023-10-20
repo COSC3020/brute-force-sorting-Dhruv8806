@@ -1,4 +1,3 @@
-
 function Swap(arr, indexA, indexB) {
     let temp = arr[indexA]; //Store element at indexA
     arr[indexA] = arr[indexB]; //Swap elements
@@ -44,11 +43,13 @@ function tryAllPermutations(arr) { //Tries all permutations of the arr to sort i
     // if (!sortedListFound) {
     //     console.log("No sorted list found after " + permutationsTried + " permutations.");
     // }
+    // const sortedArray = permute([...arr],0);
+    // return sortedArray;
 
     return permutationsTried;
 }
 
-const Sorted = (arr) => { //Sorts an array using all possible permutations
+function permutationSort(arr) { //Sorts an array using all possible permutations
     const copyArr = [...arr];
     const permutationsTried = tryAllPermutations(copyArr);
 
@@ -62,7 +63,7 @@ console.log("Original Array Elements");
 console.log(s);
 
 console.log("Sorted Array Elements");
-console.log(Sorted(s));
+console.log(permutationSort(s));
 
 /*
 Sources Used: 
