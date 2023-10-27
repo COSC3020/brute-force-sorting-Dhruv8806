@@ -1,10 +1,10 @@
-function Swap(arr, indexA, indexB) {
-    let temp = arr[indexA]; //Store element at indexA
-    arr[indexA] = arr[indexB]; //Swap elements
+function swap(arr, indexA, indexB) {
+    let temp = arr[indexA];
+    arr[indexA] = arr[indexB];
     arr[indexB] = temp;
 }
 
-function isListSorted(arr) { //Checking if array is sorted
+function isListSorted(arr) {
     for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i] > arr[i + 1]) {
             return false;
@@ -13,57 +13,52 @@ function isListSorted(arr) { //Checking if array is sorted
     return true;
 }
 
-function tryAllPermutations(arr) { //Tries all permutations of the arr to sort it
-    let permutationsTried = 0; //Counts how many permutations were tried
-    let sortedListFound = false;
-
-    function permute(arr, start) { //Recursive function to generate permutations
-        if (start === arr.length) {
-            permutationsTried++;
-            if (isListSorted(arr)) {
-                sortedListFound = true;
-                console.log(arr);
-                return;
-            }
-            return;
+function getPermutations(arr, index, permutations) {
+    if (index === arr.length) {
+        permutations.push([...arr]);
+    } else {
+        for (let i = index; i < arr.length; i++) {
+            swap(arr, index, i);
+            getPermutations(arr, index + 1, permutations);
+            swap(arr, index, i);
         }
+    }
+    return permutations; 
+}
 
-        for (let i = start; i < arr.length; i++) {
-            Swap(arr, start, i);
-            permute(arr, start + 1);
-            Swap(arr, start, i);
-            if (sortedListFound) {
-                return;
+function permutationSort(arr) {
+    let originalArray = [...arr]; 
+    let permutations = []; 
+    let perms = getPermutations(arr, 0, permutations);
+    let sortedFound = false;
+  
+    //Loop through the generated permutations
+    for (let permAt = 0; permAt < perms.length; permAt++) {
+        if (isListSorted(perms[permAt])) {
+            sortedFound = true;
+            for (let j = 0; j < perms[permAt].length; j++) {
+                arr[j] = perms[permAt][j];
             }
         }
     }
 
-    permute(arr, 0);
-
-    // if (!sortedListFound) {
-    //     console.log("No sorted list found after " + permutationsTried + " permutations.");
-    // }
-    // const sortedArray = permute([...arr],0);
-    // return sortedArray;
-
-    return permutationsTried;
+    return perms.length;
+    //return permutationSort;
+    
 }
 
-function permutationSort(arr) { //Sorts an array using all possible permutations
-    const copyArr = [...arr];
-    const permutationsTried = tryAllPermutations(copyArr);
-
-    console.log("Total permutations tried: " + permutationsTried);
-
-    return permutationsTried; //return the number of permutations tried
-};
-
-var s = [3, 5, 6, 1, 4, 2];
+var s = [3, 5, 6, 1, 4, 2, 7];
 console.log("Original Array Elements");
 console.log(s);
 
-console.log("Sorted Array Elements");
+console.log("Total premutation tried");
 console.log(permutationSort(s));
+
+console.log("Sorted Array Elements");
+console.log(s);
+
+
+// Referred to "Ryan Zafft" implementation for understanding and helping me fix parts of my code. 
 
 /*
 Sources Used: 
