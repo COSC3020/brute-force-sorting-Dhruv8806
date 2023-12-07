@@ -27,4 +27,3 @@ In the best-case scenario, where the first attempted permutation is sorted, the 
 
 If we randomly created permutations without memory, I believe the worst-case time complexity would remain $O(n!)$, but the specific number of attempted permutations before finding the sorted list could vary. However it wouldn’t change the overall complexity. 
 
-
