@@ -21,5 +21,10 @@ randomly without memory instead of systematically trying them?
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
 
-The runtime complexity of the brute-force algorithm, which involves generating all permutations of the input list, is $O(n!)$ in the worst case as there are $n!$ possible permutations. For each permutation, the algorithm involves swapping elements in the array (a constant time operation) and checking if the permutation is sorted, which takes $O(n)$ time. Therefore, the overall time complexity for my brute-sort algorithm, for checking each permutation and sorting checks, is $O(n! * n)$ in the worst case. The best-case complexity is the first permutation tried, in the already sorted list resulting in a best-case time complexity of $O(1)$ . If we randomly created permutations without memory, I believe the worst-case time complexity would remain $O(n!)$, but the specific number of attempted permutations before finding the sorted list could vary. However it wouldn’t change the overall complexity. 
+The runtime complexity of my brute-force algorithm, which involves generating all permutations of the input list, is $O(n!)$ in the worst case, as there are $n!$ possible permutations. For each permutation, the algorithm involves swapping elements in the sorted array and checks if the permutation is sorted, taking O(n) time. The overall time complexity for my brute-sort algorithm, for checking each permutation and sorting checks, is $\ O(n!*n)$ in the worst case. 
+
+In the best-case scenario, where the first attempted permutation is sorted, the time complexity is $O(1)$. Even if the first permutation is sorted, the algorithm always generates all permutations, maintaining the complexity of $\ O(n!)$. The overall best-case complexity can be expressed as $\ O(1 * n!)$, where n! represents the factorial number of permutations. 
+
+If we randomly created permutations without memory, I believe the worst-case time complexity would remain $O(n!)$, but the specific number of attempted permutations before finding the sorted list could vary. However it wouldn’t change the overall complexity. 
+
 
