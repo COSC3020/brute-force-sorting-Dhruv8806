@@ -21,9 +21,11 @@ randomly without memory instead of systematically trying them?
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
 
-The runtime complexity of my brute-force algorithm, which involves generating all permutations of the input list, is $O(n!)$ in the worst case, as there are $n!$ possible permutations. For each permutation, the algorithm involves swapping elements in the sorted array and checks if the permutation is sorted, taking O(n) time. The overall time complexity for my brute-sort algorithm, for checking each permutation and sorting checks, is $\ O(n!*n)$ in the worst case. 
+In my brute-force algorithm, following generating all permutations of the input list. The worst-case time complexity arises from checking each permutation, leading to $O(n!)$ due to the $n!$ possible permutations. Within each permutation check, the algorithm swaps elements in the array and checks if it's sorted,adding an extra $O(n)$ for each permutation. As a result, the overall worst-case time complexity is $\ O(n! + n)$. 
 
-In the best-case scenario, where the first attempted permutation is sorted, the time complexity is $O(1)$. Even if the first permutation is sorted, the algorithm always generates all permutations, maintaining the complexity of $\ O(n!)$. The overall best-case complexity can be expressed as $\ O(1 * n!)$, where n! represents the factorial number of permutations. 
+In the best-case scenario, the algorithm discovers the sorted list on first try, so the time complexity is $O(n!)$. When starting with an empty set, the time complexity becomes $O(1)$. On the flip side, in the worst-case, it takes in attempts to find the sorted list, resulting in an overall time complexity of $\ O(n! + n)$.
 
-If we randomly created permutations without memory, I believe the worst-case time complexity would remain $O(n!)$, but the specific number of attempted permutations before finding the sorted list could vary. However it wouldn’t change the overall complexity. 
+Exploring randomness, if permutations were generated randomly, the chance of obtaining the correct list in each attempt is $1/n!$ . On average, it would take $n!$ attempts to find the sorted list. Each attempt involves $O(n)$ operations, resulting in an average time complexity of $\ O(n × n!)$
 
+Sources Used: 
+Referred to " Countmooshroom " analysis 
