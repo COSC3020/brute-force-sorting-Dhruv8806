@@ -21,11 +21,16 @@ randomly without memory instead of systematically trying them?
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
 
-In my brute-force algorithm, following generating all permutations of the input list. The worst-case time complexity arises from checking each permutation, leading to $O(n!)$ due to the $n!$ possible permutations. Within each permutation check, the algorithm swaps elements in the array and checks if it's sorted,adding an extra $O(n)$ for each permutation. As a result, the overall worst-case time complexity is $\ O(n! + n)$. 
+### Worst Case
 
-In the best-case scenario, the algorithm discovers the sorted list on first try, so the time complexity is $O(n!)$. When starting with an empty set, the time complexity becomes $O(1)$. On the flip side, in the worst-case, it takes in attempts to find the sorted list, resulting in an overall time complexity of $\ O(n! + n)$.
+In the worst-scenario, the algorithm generates all possible permutation of the input list. Since there are $n!$ permutations and for each permutation, it performs $O(n)$ operations to check if it's sorted, the overall worst-case time complexity is $\Theta$ $(n * n!)$
 
-Exploring randomness, if permutations were generated randomly, the chance of obtaining the correct list in each attempt is $1/n!$ . On average, it would take $n!$ attempts to find the sorted list. Each attempt involves $O(n)$ operations, resulting in an average time complexity of $\ O(n × n!)$
+### Best Case
+
+In the best-case scenario, the input list is already sorted, and the algorithm discovers thos on the first try. Therefore, the best-case time complexity is $O(n)$
+
+
+If permutations were generated randomly, the chance of obtaining the correct list in each attempt is $1/n!$ . On average, it would take $n!$ attempts to find the sorted list. Each attempt involves $O(n)$ operations, resulting in an average time complexity of $\ O(n * n!)$
 
 Sources Used: 
 Referred to " Countmooshroom " analysis 
